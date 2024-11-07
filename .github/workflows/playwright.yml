@@ -23,7 +23,7 @@ jobs:
           run: playwright install --with-deps
 
         - name: Run tests
-          run: pytest --tracing retain-on-failure
+          run: pytest
 
         - name: Upload artifacts
           if: always()
@@ -54,7 +54,7 @@ jobs:
           run: playwright install --with-deps
 
         - name: Run tests
-          run: pytest --tracing retain-on-failure
+          run: pytest
 
         - name: Upload artifacts
           if: always()
@@ -85,7 +85,7 @@ jobs:
           run: playwright install --with-deps
 
         - name: Run tests
-          run: pytest --tracing retain-on-failure
+          run: pytest
 
         - name: Upload artifacts
           if: always()
