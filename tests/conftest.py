@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 def page():
     """Sets up and yields a new browser page."""
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch()
+        browser = playwright.chromium.launch(headless=False)
         page = browser.new_page()
         yield page
         browser.close()
