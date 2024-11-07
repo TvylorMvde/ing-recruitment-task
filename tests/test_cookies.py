@@ -28,8 +28,6 @@ class TestCookies:
         logger.info("Opening the 'ing.pl' page.")
         page.goto("https://ing.pl")
 
-        logger.info(f"DEBUG: {get_cookie_value(page, "cookiePolicyGDPR")}")
-
         cookies_modal = CookiesModal(page)
         logger.info("Clicking the 'Dostosuj' button.")
         cookies_modal.settings.click()
