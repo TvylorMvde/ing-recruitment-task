@@ -23,7 +23,7 @@ jobs:
           run: playwright install chromium
 
         - name: Run tests
-          run: pytest main.py --browser chrome
+          run: python main.py --browser chromium
 
     test-firefox:
         runs-on: ubuntu-latest
@@ -46,9 +46,9 @@ jobs:
           run: playwright install firefox
 
         - name: Run tests
-          run: pytest main.py --browser firefox
+          run: python main.py --browser firefox
 
-    test-edge:
+    test-webkit:
         runs-on: ubuntu-latest
         timeout-minutes: 10
         steps:
@@ -69,5 +69,5 @@ jobs:
           run: playwright install msedge
 
         - name: Run tests
-          run: pytest main.py --browser msedge
+          run: python main.py --browser msedge
 
