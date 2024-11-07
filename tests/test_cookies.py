@@ -29,8 +29,6 @@ class TestCookies:
         page.goto("https://ing.pl")
 
         cookies_modal = CookiesModal(page)
-        cookies_modal.webelement.scroll_into_view_if_needed()
-
         logger.info("Clicking the 'Dostosuj' button.")
         cookies_modal.settings.click()
 
