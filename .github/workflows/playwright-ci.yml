@@ -20,7 +20,7 @@ jobs:
             pip install -r requirements.txt
 
         - name: Install Google Chrome browser
-          run: playwright install chrome
+          run: python -m playwright install chrome
 
         - name: Run tests
           run: python main.py --browser chrome
@@ -43,7 +43,7 @@ jobs:
             pip install -r requirements.txt
 
         - name: Install Mozilla Firefox browser
-          run: playwright install firefox
+          run: python -m playwright install firefox
 
         - name: Run tests
           run: python main.py --browser firefox
@@ -66,7 +66,7 @@ jobs:
             pip install -r requirements.txt
 
         - name: Install Microsoft Edge browser
-          run: playwright install msedge
+          run: python -m playwright install msedge
 
         - name: Run tests
           run: python main.py --browser msedge
