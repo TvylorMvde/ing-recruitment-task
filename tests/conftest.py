@@ -12,8 +12,7 @@ def page():
     """Sets up and yields a new browser page."""
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch()
-        context = browser.new_context()
-        page = context.new_page()
+        page = browser.new_page()
         yield page
         browser.close()
 
