@@ -19,11 +19,11 @@ jobs:
             python -m pip install --upgrade pip
             pip install -r requirements.txt
 
-        - name: Ensure browsers are installed
-          run: playwright install chromium
+        - name: Install Google Chrome browser
+          run: playwright install chrome
 
         - name: Run tests
-          run: python main.py --browser chromium
+          run: python main.py --browser chrome
 
     test-firefox:
         runs-on: ubuntu-latest
@@ -42,13 +42,13 @@ jobs:
             python -m pip install --upgrade pip
             pip install -r requirements.txt
 
-        - name: Ensure browsers are installed
+        - name: Install Mozilla Firefox browser
           run: playwright install firefox
 
         - name: Run tests
           run: python main.py --browser firefox
 
-    test-webkit:
+    test-edge:
         runs-on: ubuntu-latest
         timeout-minutes: 10
         steps:
@@ -65,7 +65,7 @@ jobs:
             python -m pip install --upgrade pip
             pip install -r requirements.txt
 
-        - name: Ensure browsers are installed
+        - name: Install Microsoft Edge browser
           run: playwright install msedge
 
         - name: Run tests
