@@ -1,6 +1,10 @@
 import pytest
+import logging
 
 from playwright.sync_api import sync_playwright
+
+
+logger = logging.getLogger(__name__)
 
 
 @pytest.fixture()
@@ -17,4 +21,6 @@ def page():
 @pytest.fixture()
 def remove_cookie_policy_gdpr(page):
     """Removes the 'cookiePolicyGDPR' cookie, if found."""
-    page.context.clear_cookies(name="cookiePolicyGDPR")
+    cookie_name = "cookiePolicyGDPR"
+    logger.info(f"Removing the '{cookie_name}' cookie as a part of the test setup.")
+    page.context.clear_cookies(name=cookie_name)

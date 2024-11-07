@@ -44,8 +44,8 @@ class TestCookies:
 
         logger.info(f"The retrieved '{cookie_name}' cookie value: {cookie_value}.")
 
-        expected_value = "3"
         logger.info(f"Checking if the '{cookie_name}' cookie has a correct value.")
+        expected_value = "3"
         assert cookie_value == expected_value, (
             f"The '{cookie_name}' cookie value does not match the expected one. "
             f"The expected value is '{expected_value}', but got '{cookie_value}'."
