@@ -23,14 +23,15 @@ jobs:
           run: playwright install chrome
 
         - name: Run tests
-          run: pytest --tracing=retain-on-failure
+          run: pytest
 
         - name: Upload artifacts
+          if: always()
           uses: actions/upload-artifact@v4
-          if: ${{ !cancelled() }}
           with:
             name: playwright-traces
             path: test-results/
+            retention-days: 7
 
     test-firefox:
         runs-on: ubuntu-latest
@@ -53,14 +54,15 @@ jobs:
           run: playwright install firefox
 
         - name: Run tests
-          run: pytest --tracing=retain-on-failure
+          run: pytest
 
         - name: Upload artifacts
+          if: always()
           uses: actions/upload-artifact@v4
-          if: ${{ !cancelled() }}
           with:
             name: playwright-traces
             path: test-results/
+            retention-days: 7
 
     test-edge:
         runs-on: ubuntu-latest
@@ -83,12 +85,13 @@ jobs:
           run: playwright install msedge
 
         - name: Run tests
-          run: pytest --tracing=retain-on-failure
+          run: pytest
 
         - name: Upload artifacts
+          if: always()
           uses: actions/upload-artifact@v4
-          if: ${{ !cancelled() }}
           with:
             name: playwright-traces
             path: test-results/
+            retention-days: 7
 
