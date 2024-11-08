@@ -16,8 +16,10 @@ def page(request):
 
         yield page
 
-        browser_name = os.getenv("BROWSER_NAME", "")
-        context.tracing.stop(path=f"playwright-trace-{browser_name}.zip")
+        browser_name = os.getenv("BROWSER_NAME", "chromium")
+        context.tracing.stop(
+            path=f"playwright-report/playwright-report-{browser_name}.zip"
+        )
         browser.close()
 
 
