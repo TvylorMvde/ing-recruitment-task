@@ -7,7 +7,8 @@ from playwright.sync_api import sync_playwright
 
 @pytest.fixture()
 def page(request):
-    """Sets up and yields a new browser page."""
+    """Sets up and yields a new browser page. Additionaly sets up tracking and
+    creating test report .zip file at the end of the test run."""
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=False)
         context = browser.new_context()
