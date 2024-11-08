@@ -26,7 +26,7 @@ class TestCookies:
         page.goto("https://ing.pl")
 
         cookies_modal = CookiesModal(page)
-        logging.info("Clicking the 'Dostosuj' button.")
+        logging.info("Clicking the 'Dostosuj' button on the cookie policy modal.")
         cookies_modal.settings.click()
 
         logging.info("Checking the 'Cookies analityczne' checkbox.")

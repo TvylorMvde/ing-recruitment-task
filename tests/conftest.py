@@ -10,9 +10,13 @@ def page(request):
     """Sets up and yields a new browser page."""
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch()
-        context = browser.new_context()
-        page = context.new_page()
+        context = browser.new_context(
+            viewport={"width": 1920, "height": 1080},
+            locale="pl-PL",
+            timezone_id="Europe/Warsaw",
+        )
         context.tracing.start(screenshots=True, snapshots=True)
+        page = context.new_page()
 
         yield page
 

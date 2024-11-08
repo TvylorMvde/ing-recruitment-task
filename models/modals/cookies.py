@@ -5,7 +5,7 @@ from models.base.page import PageElement
 
 
 class CookiesModal(PageElement):
-    """Cookie policy popup modal with buttons and checkboxes, allowing user to accept
+    """Cookie policy modal with buttons and checkboxes, allowing user to accept
     or decline the particular cookies.
     """
 
