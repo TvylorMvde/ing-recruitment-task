@@ -9,10 +9,10 @@ jobs:
     timeoutInMinutes: 5
     strategy:
       matrix:
-        test_chrome:
+        chrome:
           BROWSER_NAME: 'chromium'
           ARTIFACT_NAME: 'playwright-report-chromium.zip'
-        test_firefox:
+        firefox:
           BROWSER_NAME: 'firefox'
           ARTIFACT_NAME: 'playwright-report-firefox.zip'
     steps:
