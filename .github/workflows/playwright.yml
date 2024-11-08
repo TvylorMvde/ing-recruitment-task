@@ -29,8 +29,8 @@ jobs:
           uses: actions/upload-artifact@v4
           if: always()
           with:
-            name: playwright-trace
-            path: playwright-trace.zip
+            name: playwright-trace-chrome
+            path: playwright-trace-chrome.zip
             retention-days: 7
 
     test-firefox:
@@ -60,8 +60,8 @@ jobs:
           uses: actions/upload-artifact@v4
           if: always()
           with:
-            name: playwright-trace
-            path: playwright-trace.zip
+            name: playwright-trace-firefox
+            path: playwright-trace-firefox.zip
             retention-days: 7
 
     test-edge:
@@ -91,7 +91,7 @@ jobs:
           uses: actions/upload-artifact@v4
           if: always()
           with:
-            name: playwright-trace
-            path: playwright-trace.zip
+            name: playwright-trace-edge
+            path: playwright-trace-edge.zip
             retention-days: 7
 
