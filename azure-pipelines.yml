@@ -1,14 +1,72 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'ubuntu-latest'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+jobs:
+  - job: test_chrome
+    timeoutInMinutes: 5
+    steps:
+      - checkout: self
+        displayName: 'Checkout repository'
+
+      - task: UsePythonVersion@0
+        inputs:
+          versionSpec: '3.11'
+        displayName: 'Set up Python'
+
+      - script: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+        displayName: 'Install dependencies'
+
+      - script: playwright install --with-deps
+        displayName: 'Install browsers'
+
+      - script: python main.py --browser chromium
+        displayName: 'Run tests'
+
+      - script: mkdir -p playwright-report
+        displayName: 'Create playwright report directory'
+
+      - task: PublishPipelineArtifact@1
+        inputs:
+          targetPath: 'playwright-report'
+          artifact: 'playwright-report-chrome.zip'
+          publishLocation: 'pipeline'
+        condition: succeededOrFailed()
+        displayName: 'Upload artifacts'
+
+  - job: test_firefox
+    timeoutInMinutes: 5
+    steps:
+      - checkout: self
+        displayName: 'Checkout repository'
+
+      - task: UsePythonVersion@0
+        inputs:
+          versionSpec: '3.11'
+        displayName: 'Set up Python'
+
+      - script: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+        displayName: 'Install dependencies'
+
+      - script: playwright install --with-deps
+        displayName: 'Install browsers'
+
+      - script: python main.py --browser firefox
+        displayName: 'Run tests'
+
+      - script: mkdir -p playwright-report
+        displayName: 'Create playwright report directory'
+
+      - task: PublishPipelineArtifact@1
+        inputs:
+          targetPath: 'playwright-report'
+          artifact: 'playwright-report-firefox.zip'
+          publishLocation: 'pipeline'
+        condition: succeededOrFailed()
+        displayName: 'Upload artifacts'
