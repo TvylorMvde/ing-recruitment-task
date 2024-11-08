@@ -5,6 +5,8 @@ jobs:
     test-chrome:
         runs-on: ubuntu-latest
         timeout-minutes: 10
+        env:
+          BROWSER_NAME: "chrome"
         steps:
         - name: Checkout repository
           uses: actions/checkout@v4
@@ -36,6 +38,8 @@ jobs:
     test-firefox:
         runs-on: ubuntu-latest
         timeout-minutes: 10
+        env:
+          BROWSER_NAME: "firefox"
         steps:
         - name: Checkout repository
           uses: actions/checkout@v4
@@ -67,6 +71,8 @@ jobs:
     test-edge:
         runs-on: ubuntu-latest
         timeout-minutes: 10
+        env:
+          BROWSER_NAME: "edge"
         steps:
         - name: Checkout repository
           uses: actions/checkout@v4

@@ -1,3 +1,4 @@
+import os
 import pytest
 import logging
 
@@ -5,7 +6,7 @@ from playwright.sync_api import sync_playwright
 
 
 @pytest.fixture()
-def page():
+def page(request):
     """Sets up and yields a new browser page."""
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch()
@@ -15,7 +16,8 @@ def page():
 
         yield page
 
-        context.tracing.stop(path="playwright-trace.zip")
+        browser_name = os.getenv("BROWSER_NAME", "")
+        context.tracing.stop(path=f"playwright-trace-{browser_name}.zip")
         browser.close()
 
 
