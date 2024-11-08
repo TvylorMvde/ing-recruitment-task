@@ -3,6 +3,7 @@ import pytest
 import logging
 
 from playwright.sync_api import sync_playwright
+from playwright_stealth import stealth_sync
 
 
 @pytest.fixture()
@@ -10,13 +11,10 @@ def page(request):
     """Sets up and yields a new browser page."""
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch()
-        context = browser.new_context(
-            viewport={"width": 1920, "height": 1080},
-            locale="pl-PL",
-            timezone_id="Europe/Warsaw",
-        )
+        context = browser.new_context()
         context.tracing.start(screenshots=True, snapshots=True)
         page = context.new_page()
+        stealth_sync(page)
 
         yield page
 
