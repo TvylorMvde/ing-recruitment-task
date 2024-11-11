@@ -1,5 +1,4 @@
-# 🦁 ING Bank Śląski recruitment task
-Recruitment task for the Senior QA Engineer position at ING Bank Śląski.
+# 🎯 Recruitment task
 
 ## 📂 Project structure
 ```
@@ -21,11 +20,21 @@ ING-RECRUITMENT-TASK
 │  ├─ __init__.py
 │  ├─ conftest.py
 │  └─ test_cookies.py
-├─ .gitignore.py
+├─ .gitignore
 ├─ azure-pipelines.yml
 ├─ logs.py
-└─ README.md
+├─ README.md
+└─ requirements.txt
 ```
+#### Glossary:
+* `features` - directory containing feature file, step definitions for [Behave](https://behave.readthedocs.io/en/latest/) (BDD testing framework) and `environment.py` module defining environmental controls (hooks).
+* `models` - directory containing the UI models (e.g. page objects and modals) used by the test scripts.
+* `tests` - directory holding the test-related files, including test cases and fixtures for [Pytest](https://docs.pytest.org/en/stable/getting-started.html).
+* `.gitignore` - file that specifies which files and directories should not be tracked by version control system.
+* `azure-pipelines.yml` - configuration file for setting up a CI/CD on [Azure DevOps Platform](https://azure.microsoft.com/pl-pl/products/devops).
+* `logs.py` - python module responsible for configuring the custom logging messages during tests execution.
+* `README.md` - markdown file containing the project documentation.
+* `requirements.txt` - file that lists all the Python packages and dependencies required for the project.
 
 ## 🛠 Installation
 Python 3.9 or newer is required.
@@ -65,15 +74,9 @@ pip install -r requirements.txt
 behave
 ```
 #### Run the tests using [Pytest](https://docs.pytest.org/en/stable/getting-started.html) and [Playwright](https://playwright.dev/python/docs/intro) frameworks:
-* Run all the tests in the current directory
-    ```
-    pytest -v -s
-    ```
-* Run specific tests in a module:
-    ```
-    pytest -v -s tests/test_cookies.py
-    ```
-
+```
+pytest -v -s
+```
 ## 📝 Test reports
 The results of the [Pytest](https://docs.pytest.org/en/stable/getting-started.html) and [Playwright](https://playwright.dev/python/docs/intro) test runs are stored in the `playwright-report` directory in the root of the project directory. Each test run generates a report file named according to the browser being used for the tests. The file is named in the following convention: `playwright-report-{browser_name}.zip`.
 #### Viewing the reports:
@@ -83,7 +86,7 @@ You can view the Playwright test reports using [Playwright Trace Viewer](https:/
 2. Upload the `.zip` report file (e.g. `playwright-report-chromium.zip`)
 3. Once uploaded, you can explore the test run in detail, view screenshots, network logs, and interact with the trace data to investigate issues.
 
-## ⚙️ CI/CD (Bonus task)
+## ⚙️ CI/CD
 A dedicated `azure-pipeline.yml` YAML file is configured to run the tests across multiple browsers (Chrome and Firefox) on the [Azure DevOps Platform](https://azure.microsoft.com/pl-pl/products/devops). The pipeline performs the following steps:
 1. Checkout the repository
 2. Set up Python version
