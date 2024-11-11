@@ -37,7 +37,7 @@ ING-RECRUITMENT-TASK
 * `requirements.txt` - file that lists all the Python packages and dependencies required for the project.
 
 ## 🛠 Installation
-Python 3.9 or newer is required.
+Python 3.10 or newer is required.
 #### Clone the repository:
 ```
 git clone https://github.com/TvylorMvde/ing-recruitment-task.git
@@ -48,7 +48,7 @@ cd ing-recruitment-task
 ```
 #### Set up the virtual environment:
 ```
-python3 -m venv venv
+python -m venv venv
 ```
 #### Activate virtual environment:
 * bash/zsh:
@@ -66,6 +66,10 @@ python3 -m venv venv
 #### Install required packages:
 ```
 pip install -r requirements.txt
+```
+#### Install Playwright browsers:
+```
+playwright install
 ```
 
 ## 🚀 Running tests
