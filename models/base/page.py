@@ -22,7 +22,3 @@ class PageElement:
         locator.
         """
         return self.page.locator(self.locator)
-
-    @property
-    def inner_text(self) -> str:
-        return self.webelement.inner_text()

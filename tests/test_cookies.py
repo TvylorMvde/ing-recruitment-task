@@ -22,8 +22,9 @@ def get_cookie_value(page: Page, cookie_name: str) -> Optional[str]:
 
 class TestCookies:
     def test_set_analytical_cookies(self, page, remove_policy_gdpr_cookie):
-        logging.info("Opening the 'ing.pl' page.")
-        page.goto("https://ing.pl")
+        url = "https://ing.pl"
+        logging.info(f"Opening the '{url}' page.")
+        page.goto(url)
 
         logging.info("Clicking the 'Dostosuj' button on the cookie policy modal.")
         cookies_modal = CookiesModal(page)
