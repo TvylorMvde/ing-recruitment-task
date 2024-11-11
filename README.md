@@ -1,4 +1,5 @@
 # 🎯 Recruitment task
+The project includes automated tests developed in [Python](https://www.python.org/) using the following testing frameworks: [Pytest](https://docs.pytest.org/en/stable/getting-started.html), [Behave](https://behave.readthedocs.io/en/latest/) and [Playwright](https://playwright.dev/python/docs/intro).
 
 ## 📂 Project structure
 ```
