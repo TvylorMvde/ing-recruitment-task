@@ -33,7 +33,7 @@ class TestCookies:
         logging.info(
             "Clicking the 'Cookies analityczne' checkbox on the cookie policy modal."
         )
-        cookies_modal.analitycal_cookies.click()
+        cookies_modal.analytical_cookies.click()
 
         logging.info(
             "Clicking the 'Zaakceptuj wybrane' button on the cookie policy modal."
@@ -42,10 +42,10 @@ class TestCookies:
 
         cookie_name = "cookiePolicyGDPR"
         cookie_value = get_cookie_value(page, cookie_name)
-        expected_value = "3"
+        expected_cookie_value = "3"
 
         logging.info(f"Checking if the '{cookie_name}' cookie has a correct value.")
-        assert cookie_value == expected_value, (
+        assert cookie_value == expected_cookie_value, (
             f"The '{cookie_name}' cookie value does not match the expected one. "
-            f"The expected value is '{expected_value}', but got '{cookie_value}'."
+            f"The expected value is '{expected_cookie_value}', but got '{cookie_value}'."
         )

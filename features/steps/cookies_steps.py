@@ -20,7 +20,7 @@ def click_the_cookies_settings_button(context):
 
 @when('I click on the "Cookies analityczne" checkbox on the cookie policy modal')
 def click_the_analytical_cookies_checkbox(context):
-    context.cookies_modal.analitycal_cookies.click()
+    context.cookies_modal.analytical_cookies.click()
 
 
 @when('I click on the "Zaakceptuj wybrane" button on the cookie policy modal')

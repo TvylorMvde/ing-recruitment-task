@@ -19,7 +19,7 @@ class CookiesModal(PageElement):
         )
 
         # Checkboxes
-        self.analitycal_cookies = Checkbox(
+        self.analytical_cookies = Checkbox(
             page,
             f"{self.locator}//label[@for='CpmAnalyticalOption']",
         )
