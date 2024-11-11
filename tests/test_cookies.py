@@ -21,7 +21,7 @@ def get_cookie_value(page: Page, cookie_name: str) -> Optional[str]:
 
 
 class TestCookies:
-    def test_set_analytical_cookies(self, page, remove_cookie_policy_gdpr):
+    def test_set_analytical_cookies(self, page, remove_policy_gdpr_cookie):
         logging.info("Opening the 'ing.pl' page.")
         page.goto("https://ing.pl")
 
@@ -29,10 +29,14 @@ class TestCookies:
         cookies_modal = CookiesModal(page)
         cookies_modal.settings.click()
 
-        logging.info("Checking the 'Cookies analityczne' checkbox.")
+        logging.info(
+            "Clicking the 'Cookies analityczne' checkbox on the cookie policy modal."
+        )
         cookies_modal.analitycal_cookies.click()
 
-        logging.info("Clicking the 'Zaakceptuj wybrane' button.")
+        logging.info(
+            "Clicking the 'Zaakceptuj wybrane' button on the cookie policy modal."
+        )
         cookies_modal.accept_chosen_cookies.click()
 
         cookie_name = "cookiePolicyGDPR"
