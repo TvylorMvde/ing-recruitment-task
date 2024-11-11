@@ -1,23 +1,6 @@
 import logging
 
-from typing import Optional
-
-from models.modals.cookies import CookiesModal
-
-from playwright.sync_api import Page
-
-
-def get_cookie_value(page: Page, cookie_name: str) -> Optional[str]:
-    """Retrieves the value of the particular cookie by the given name.
-
-    :param page: the Page object
-    :param cookie_name: the name of the cookie
-    :returns: the value of the cookie or None if the cookie was not found
-    """
-    cookies = page.context.cookies()
-    for cookie in cookies:
-        if cookie["name"] == cookie_name:
-            return cookie["value"]
+from models.modals.cookies import CookiesModal, get_cookie_value
 
 
 class TestCookies:

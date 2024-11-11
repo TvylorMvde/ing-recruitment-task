@@ -1,6 +1,6 @@
 from behave import given, when, then
 
-from tests.test_cookies import get_cookie_value
+from models.modals.cookies import get_cookie_value
 
 
 @given('the "{cookie_name}" cookie is removed')
