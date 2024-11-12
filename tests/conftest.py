@@ -10,19 +10,29 @@ from playwright.sync_api import sync_playwright
 configure_logging()
 
 
+def pytest_addoption(parser):
+    parser.addoption(
+        "--browser",
+        action="store",
+        default="chromium",
+        choices=["chromium", "firefox"],
+        help="Specify which browser to use (chromium or firefox)",
+    )
+
+
 @pytest.fixture()
-def page():
+def page(request):
     """Sets up and yields a new browser page. Additionaly sets up tracking and
     creating test report .zip file at the end of the test run."""
+    browser_name = request.config.getoption("--browser")
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch()
+        browser = getattr(playwright, browser_name).launch()
         context = browser.new_context()
         context.tracing.start(screenshots=True, snapshots=True)
         page = context.new_page()
 
         yield page
 
-        browser_name = os.getenv("BROWSER_NAME", "chromium")
         context.tracing.stop(
             path=f"playwright-report/playwright-report-{browser_name}.zip"
         )
