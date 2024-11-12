@@ -32,7 +32,7 @@ jobs:
       - script: playwright install --with-deps
         displayName: 'Install browsers'
 
-      - script: python main.py --browser $BROWSER_NAME
+      - script: pytest -v -s --browser $BROWSER_NAME
         displayName: 'Run tests'
 
       - script: mkdir -p playwright-report
