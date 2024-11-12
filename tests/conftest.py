@@ -12,9 +12,9 @@ configure_logging()
 
 def pytest_addoption(parser):
     parser.addoption(
-        "--browser",  # Custom argument to specify browser
+        "--browser",
         action="store",
-        default="chromium",  # Default value if no browser is specified
+        default="chromium",
         choices=["chromium", "firefox"],
         help="Specify which browser to use (chromium or firefox)",
     )
